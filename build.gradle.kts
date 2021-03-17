@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        jcenter()
         mavenLocal()
         mavenCentral()
     }
@@ -72,7 +71,7 @@ publishing {
           url = uri("https://maven.pkg.github.com/sizovs/pipelinr")
           credentials {
             username = "sizovs"
-            password = project.findProperty("GITHUB_TOKEN") as String?
+            password = System.getenv("GITHUB_TOKEN") as String?
           }
         }
       }
@@ -95,7 +94,6 @@ tasks {
 }
 
 repositories {
-    jcenter()
     mavenLocal()
     mavenCentral()
 }
